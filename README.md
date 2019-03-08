@@ -14,8 +14,22 @@
 
 #### 使用isNaN()处理 parseInt()的结果也是一种明智的做法
     var testVal = 'elephant'
-    if(isNaN(parseInt(testVal/2), 2)){
+    if(isNaN(parseInt(testVal), 2)){
       cosnole.log('handle not a number case')
     } else{
       console.log('handle number case')
     }
+
+在这个例子中，如果变量testVal值是通过外部接口设置的，则你无法确 定该变量值的类型。如果不使用isNaN()进行处理，parseInt()将会产生异常，导致程序崩溃。
+
+---
+#### 字符串是一个unicode字符序列（每个字符占16位）
+---
+
+#### null == undefined // true
+
+- null表示赋了一个没有意义的值
+- undefined表示已经定义，没有赋值
+---
+
+
