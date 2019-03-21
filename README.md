@@ -56,3 +56,5 @@ function hello(name) {
       > Object.is(NaN, NaN) // true
       > Object.is(+0, -0) // false
 ---
+#### 类型转换
+- 当非数字值需要被强制转换成数字时， JavaScript会在内部使用toNumber()方法： true变成1，undefined变成NaN，false变成0，null变成0。在字符串上使用toNumber()时会进行字面上的转换，如果转换失败，则返回NaN。
