@@ -1,5 +1,5 @@
 var outer = 'outer'
-var copy;
+var copy
 function outerFn () {
   var inner = 'inner'
   function innerFn (param) {
@@ -55,4 +55,23 @@ for ( var i = 0; i < 5; i ++ ) {
   })(i)
 }
 // 这里的改进是通过生成一个IIFE的作用域， 把传入的i 存在了自执行函数的作用域中，所以每次可以取到正确的值。
+
+// 模块
+function module () {
+  var private = 1;
+  function getPrivate () {
+    return private
+  }
+  function setPrivate () {
+    private ++
+  }
+  return {
+    getPrivate,
+    setPrivate
+  }
+}
+var instance = module()
+console.log(instance.getPrivate()) // 1
+instance.setPrivate()
+console.log(instance.getPrivate()) // 2
 
