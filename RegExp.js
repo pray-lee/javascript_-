@@ -32,3 +32,27 @@ console.log(arrMatches1) // [i1, i2, i3, i4, i5]
 let re1 = /i[^0-5]/gi
 let arrMatches2 = strToMatch1.match(re1)
 console.log(arrMatches2) // [i6, i7, i8]
+
+// 重复出现
+console.log('---------')
+let repeatStr = /behaviou?r/ // u 可以出现0次或者1次
+console.log(repeatStr.test('behavior')) // true
+console.log(repeatStr.test('behaviour')) // true
+
+console.log('------')
+console.log(/'\d+'/.test("'123'")) // true
+
+// 分组
+let heartyLaugh = /Ha+(ha+)+/i
+console.log(heartyLaugh.test('Hahahahahahhahahahahahaha')) // true
+
+// 定义单词边界 \b,
+// 下面的例子，因为在cat前面加了\b单词边界，只有当以cat开头，才算匹配到
+console.log(/\bcat/.test('this is a c at'))// false
+console.log(/\bcat/.test('this is a cat'))// true
+console.log(/\bcat/.test('this is a tomcat'))// false
+// 如果在cat后面加了\b，就匹配尾部是不是一个完整的单词
+console.log(/cat\b/.test('this is a tomcat'))// true
+console.log(/\bcat\b/.test('this is a acatb'))// false
+
+
