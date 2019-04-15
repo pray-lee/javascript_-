@@ -55,4 +55,9 @@ console.log(/\bcat/.test('this is a tomcat'))// false
 console.log(/cat\b/.test('this is a tomcat'))// true
 console.log(/\bcat\b/.test('this is a acatb'))// false
 
-
+console.log('----')
+// 项
+let origin = '1234 5678'
+let re3 = /(\d{4}) (\d{4})/
+let modifiedOrigin = origin.replace(re3, '$2 $1')
+console.log(modifiedOrigin)
