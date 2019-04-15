@@ -60,4 +60,7 @@ console.log('----')
 let origin = '1234 5678'
 let re3 = /(\d{4}) (\d{4})/
 let modifiedOrigin = origin.replace(re3, '$2 $1')
-console.log(modifiedOrigin)
+console.log(modifiedOrigin) // 5678 1234
+
+
+// 贪婪限定符针对整个字符串进行匹配。如果没有发现匹配，它会删除字符串的最后一个字符，然后再尝试匹配。如果还没匹配，再删除最后一个字符，这个过程一直重复，直到出现匹配或是字符串已经变成空串
