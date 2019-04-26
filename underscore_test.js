@@ -23,3 +23,7 @@ _.reduce([1,2,3,4], (prevResult, currentValue) => {
   console.log(prevResult, currentValue) // 先输出1，2 然后输出haha, 3 因为第一次执行完返回了haha,haha就作为第二次执行的prevResult参数传入
   return currentValue
 })
+let reduceValue = _.reduce([1,2,3,4], (prev, current) => {
+  return current * 9 // 每次返回的值都会变成下次的prev参数传入
+})
+console.log(reduceValue) // 36
