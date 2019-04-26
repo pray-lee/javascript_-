@@ -32,7 +32,7 @@ console.log(list) // '1-2-3'
 // pop 会改变原数组
 let myArray = [1, 2, 3]
 let lastEl = myArray.pop()
-console.log('---------')
+console.log('pop:')
 console.log(myArray, lastEl)
 
 // push 会改变原数组
@@ -40,7 +40,7 @@ myArray.push(4)
 console.log(myArray)
 
 // shift 会改变元数组
- let myArray1 = [1,2,3]
+let myArray1 = [1,2,3]
 let firstEl = myArray1.shift()
 console.log(myArray1, firstEl)
 
@@ -51,7 +51,7 @@ console.log(myArray1)
 // reverse 会改变原数组
 let unreverseArr = [1,2,4,3]
 unreverseArr.reverse()
-console.log('------------')
+console.log('reverse:')
 console.log(unreverseArr)
 
 // sort 会改变原数组
@@ -59,3 +59,10 @@ let unsortArr = [1,3,2,4]
 unsortArr.sort()
 console.log('-------------')
 console.log(unsortArr)
+
+// indexOf
+let searchStr = 'abc'
+console.log('indexOf:')
+console.log(searchStr.indexOf('b'))
+console.log(searchStr.lastIndexOf('b')) //从后往前
+
