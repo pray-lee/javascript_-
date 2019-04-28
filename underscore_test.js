@@ -70,3 +70,30 @@ console.log(_.compact([0, null, undefined, '', false, true]))
 console.log('without:')
 console.log(_.without([1,1,2,3,4,4,5,5,6,6], 1,2,4,5)) // [3,6,6]
 
+// keys 检索对象可枚举的自有属性名称 , 它并不会向上遍历原型链
+console.log('keys:')
+console.log(_.keys({a:1,b:2})) // [a, b]
+
+// allKeys 检索对象自有和继承的属性名称
+console.log('allKeys:')
+function A () {
+  this.name = 1
+}
+A.prototype.age = 29
+A.prototype.getName = function () {
+  return this.name
+}
+var a = new A()
+console.log(_.allKeys(a)) // [name, age, getName]
+
+// values 检索对象自有属性的值
+console.log('values:')
+console.log(_.values(a)) // [1]
+
+// mapObject 转换对象中各个属性的值
+var lst = _.mapObject(a, function (val, key) {
+  if(key === 'name'){
+    return val + 10
+  }
+})
+console.log(lst)  // {name: 11}
