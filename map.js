@@ -17,4 +17,4 @@ mySet.add('howdy')
 mySet.add('foo')
 mySet.has('1') // true
 mySet.delete('foo')
-console.log(mySet)
+console.log(mySet')
