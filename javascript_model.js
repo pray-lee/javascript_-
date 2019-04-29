@@ -106,8 +106,8 @@ BasicServer.prototype.init = function () {
 }
 
 var nodeServer = new BasicServer()
-nodeServer.decorate('serverNode')
-node_processes = nodeServer.init()
+nodeServer.decorate('serverNode') // 加载装饰器
+node_processes = nodeServer.init() //调用装饰器的init方法,这样就形成了拓展
 console.log(node_processes) // 2
 
 // 观察者模式
@@ -138,7 +138,7 @@ var Subject = (function () {
   }
   return Subject
 })()
-// 使用
+// 定义一个简单对象，方便添加和删除观察者
 function Tweeter () {
   var subject = new Subject()
   this.addObserver = function (observer) {
