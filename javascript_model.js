@@ -40,3 +40,6 @@ CarFactory.Compact = function () {
   this.door = 4;
   this.engine_capacity = 2
 }
+CarFactory.make('Compact')
+
+// mixin模式
