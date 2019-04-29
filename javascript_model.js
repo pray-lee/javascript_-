@@ -80,7 +80,7 @@ function BasicServer () {
 BasicServer.decorators = {}
 BasicServer.decorators.serverNode = {
   init: function (pid) {
-    return pid + 1 + 'node_server'
+    return pid + 1 + 'node_server is running!!!'
   }
 }
 BasicServer.decorators.servePHP = {
@@ -108,4 +108,61 @@ BasicServer.prototype.init = function () {
 var nodeServer = new BasicServer()
 nodeServer.decorate('serverNode')
 node_processes = nodeServer.init()
-console.log(node_processes)
+console.log(node_processes) // 2
+
+// 观察者模式
+
+// 创建观察者目标
+var Subject = (function () {
+  function Subject(){
+    this.observer_list = []
+  }
+  Subject.prototype.add_observer = function (obj) {
+    this.observer_list.push(obj)
+    console.log('Added observer')
+  }
+  Subject.prototype.remove_observer = function (obj) {
+    this.observer_list.forEach((item, index) => {
+      if(item === obj){
+        this.observer_list.splice(index, 1)
+        console.log('Removed Observer')
+      }
+    })
+  }
+  // 调用观察者们的update方法
+  Subject.prototype.notify = function () {
+    var args = Array.prototype.slice.call(arguments, 0)
+    this.observer_list.forEach(item => {
+      item.update(args)
+    })
+  }
+  return Subject
+})()
+// 使用
+function Tweeter () {
+  var subject = new Subject()
+  this.addObserver = function (observer) {
+    subject.add_observer(observer)
+  }
+  this.removeObserver = function (observer) {
+    subject.remove_observer(observer)
+  }
+  this.fetchTweets = function () {
+    var tweet = {
+      tweet: 'this is one nice observer'
+    }
+    // 提示观察者有变化发生
+    subject.notify(tweet)
+  }
+}
+// 添加观察者
+var tweetUpdater = {
+  update: function () {
+    console.log('update', arguments)
+  }
+}
+// 调用
+var tweetApp = new Tweeter()
+tweetApp.addObserver(tweetUpdater)
+tweetApp.fetchTweets()
+tweetApp.removeObserver(tweetUpdater)
