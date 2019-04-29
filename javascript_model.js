@@ -68,7 +68,9 @@ var Server = (function (Logger) {
 new Server().init() //
 
 
+
 // 装饰器模式demo basicServer, 用最基本的服务器拓展
+
 function BasicServer () {
   this.pid = 1
   console.log('Initializing basic server')
