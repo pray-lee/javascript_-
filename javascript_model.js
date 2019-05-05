@@ -43,7 +43,6 @@ CarFactory.Compact = function () {
 CarFactory.make('Compact') // return car instance
 
 
-
 // mixin模式
 
 let _ = require('underscore')
@@ -68,7 +67,6 @@ var Server = (function (Logger) {
 new Server().init() //
 
 
-
 // 装饰器模式demo basicServer, 用最基本的服务器拓展
 
 function BasicServer () {
@@ -83,7 +81,7 @@ BasicServer.decorators.serverNode = {
     return pid + 1 + 'node_server is running!!!'
   }
 }
-BasicServer.decorators.servePHP = {
+BasicServer.decorators.serverPHP = {
   init: function (pid) {
     return pid + 1 + 'php_server'
   }
